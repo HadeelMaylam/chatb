@@ -26,7 +26,7 @@ OFFERS_BY_NAME = {o["merchant"]: o for o in OFFERS}
 TODAY = datetime.now().strftime("%d/%m/%Y")
 
 OFFERS_LIST = "\n".join(
-    f'- "{o["merchant"]}" | {o["category"]} | خصم:{o["discount_value"]}'
+    f'- "{o["merchant"]}" | نوع:{o.get("voice_summary","")[:50]} | خصم:{o["discount_value"]}'
     + (f' | كود:{o.get("promo_code","")}' if o.get("promo_code") else "")
     + f' | حتى:{o["valid_to"]}'
     + (f' | url:{o["source_url"]}' if o.get("source_url") else "")
