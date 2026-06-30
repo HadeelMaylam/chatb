@@ -220,7 +220,7 @@
   function catColor(cat){ return CAT_COLORS[cat] || '#555' }
 
   /* ── WebSocket ─────────────────────────────────────── */
-  const WS_URL = `ws://${location.host}/ws`;
+  const WS_URL = `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.host}/ws`;
   let ws = null;
 
   function connectWS() {
