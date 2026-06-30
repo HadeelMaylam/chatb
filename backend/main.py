@@ -146,7 +146,7 @@ async def ws_chat(websocket: WebSocket):
             history.append({"role": "user", "content": text})
             await websocket.send_json({"type": "status", "label": "أفكر..."})
 
-            loop = asyncio.get_event_loop()
+            loop = asyncio.get_running_loop()
             reply = await loop.run_in_executor(None, _llm, list(history))
 
             await websocket.send_json({"type": "status"})
